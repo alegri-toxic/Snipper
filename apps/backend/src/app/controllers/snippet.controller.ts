@@ -15,4 +15,9 @@ export class SnippetController {
     console.error(id, query);
   }
 
+  @Get('user/:id')
+  getSnippetByUser(@Query('query') query, @Param('id') id): void {
+    console.error(id, query);
+  }
+
 }
