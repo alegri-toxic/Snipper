@@ -5,13 +5,15 @@ import { LayoutContainerComponent } from './container/layout-container/layout-co
 import { HeaderComponent } from './component/header/header.component';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
 import { LabelsComponent } from './component/labels/labels.component';
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
     LayoutContainerComponent,
     HeaderComponent,
     SidenavComponent,
-    LabelsComponent
+    LabelsComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
