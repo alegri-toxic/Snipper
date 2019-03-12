@@ -8,11 +8,13 @@ import { environment } from '../../../../environments/environment';
 })
 export class HeaderComponent implements OnInit {
 
-  public headerStyle: string = environment.ui.header;
-
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get headerClasses(): string {
+    return `header ${environment.ui.header}`;
   }
 
 }

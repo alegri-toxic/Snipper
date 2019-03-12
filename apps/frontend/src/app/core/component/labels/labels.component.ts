@@ -16,4 +16,8 @@ export class LabelsComponent implements OnInit {
   ngOnInit() {
   }
 
+  get labelClasses(): string {
+    return `label clickable ${this.labelColor}`;
+  }
+
 }
