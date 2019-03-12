@@ -7,36 +7,32 @@ export class SnippetController {
 
   @Get()
   getSnippets(@Query('query') query): any {
-    console.error(query);
     return {
       type: 'getSnippets',
-      query
+      query: query || '{snippets{id,title,description}}'
     };
   }
 
   @Get(':id')
   getSnippet(@Query('query') query, @Param('id') id): any {
-    console.error(id, query);
     return {
       type: 'getSnippet',
       id,
-      query
+      query: query || `{snippets(id:${id}){title,description,text}}`
     };
   }
 
   @Get('user/:id')
   getSnippetByUser(@Query('query') query, @Param('id') id): any {
-    console.error(id, query);
     return {
       type: 'getSnippetByUser',
       userID: id,
-      query
+      query: query || `{snippets(userID:${id}){title,description,text}}`
     };
   }
 
   @Get('tag/:id')
   getSnippetByTag(@Query('query') query, @Param('id') id): any {
-    console.error(id, query);
     return {
       type: 'getSnippetByTag',
       tag: id,
@@ -46,7 +42,6 @@ export class SnippetController {
 
   @Post()
   createSnippet(@Body() body): any {
-    console.error(body);
     return {
       type: 'createSnippet',
       data: body
@@ -55,7 +50,6 @@ export class SnippetController {
 
   @Put(':id')
   updateSnippet(@Param('id') id, @Body() body): any {
-    console.error(id, body);
     return {
       type: 'updateSnippet',
       data: body
@@ -64,7 +58,6 @@ export class SnippetController {
 
   @Delete(':id')
   deleteSnippet(@Param('id') id): any {
-    console.error(id);
     return {
       type: 'deleteSnippet',
       id
