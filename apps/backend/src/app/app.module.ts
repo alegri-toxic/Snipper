@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 
-import { SnippetController } from './controllers/snippet.controller';
+import { SnippetController, LabelController } from './controllers';
 
 @Module({
   imports: [],
   controllers: [
-    SnippetController
+    SnippetController,
+    LabelController
   ],
   providers: [
 
