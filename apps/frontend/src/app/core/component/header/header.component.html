@@ -1,3 +1,24 @@
-<header class="header" [className]="headerStyle">
-  ...
+<header [className]="'header ' + headerStyle">
+  <div class="branding">
+    <a href="#" class="nav-link">
+      <clr-icon shape="cloud" class="is-solid"></clr-icon>
+      <span class="title">Project Snippeter</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    ...
+  </div>
+  <div class="header-actions">
+    <a class="nav-link nav-icon" href="#">
+      <clr-icon shape="filter"></clr-icon>
+    </a>
+
+    <a class="nav-link nav-icon" href="#">
+      <clr-icon shape="user"></clr-icon>
+    </a>
+
+    <a class="nav-link nav-icon" href="#">
+      <clr-icon shape="cog"></clr-icon>
+    </a>
+  </div>
 </header>

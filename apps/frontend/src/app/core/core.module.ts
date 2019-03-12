@@ -1,20 +1,26 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClarityModule } from '@clr/angular';
 import { LayoutContainerComponent } from './container/layout-container/layout-container.component';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { HeaderComponent } from './component/header/header.component';
+import { SidenavComponent } from './component/sidenav/sidenav.component';
+import { LabelsComponent } from './component/labels/labels.component';
 
 @NgModule({
   declarations: [
     LayoutContainerComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavComponent,
+    LabelsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ClarityModule
   ],
   exports: [
     LayoutContainerComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavComponent
   ]
 })
 export class CoreModule {
