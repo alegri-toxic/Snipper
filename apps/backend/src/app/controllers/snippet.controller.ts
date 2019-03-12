@@ -20,4 +20,9 @@ export class SnippetController {
     console.error(id, query);
   }
 
+  @Get('tag/:id')
+  getSnippetByTag(@Query('query') query, @Param('id') id): void {
+    console.error(id, query);
+  }
+
 }
