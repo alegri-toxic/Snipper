@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { LoadLabelsAction, LabelsStateModel, LabelsState, LabelsStateArray, AddLabelsAction } from '../../../+state/labels';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { LoadLabelsAction, LabelsStateModel, LabelsState, LabelsStateArray, AddLabelsAction, LoadLabelsSuccessAction, LoadLabelsFailedAction } from '../../../+state/labels';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +29,14 @@ export class LabelService {
     return this.labelsState$;
   }
 
-  async callLabelApi(teamId: number): Promise<void> {
-    // const url = "/api/labels/" + teamId;
-    const url = "/api/labels/";
-    const data = await this.http.get(url).toPromise();
-    console.error(data);
+  callLabelApi(teamId: number): void {
+    const url = `/api/labels?query={labels(teamID:${teamId}){id,title,color}}`;
+    this.http.get(url).toPromise().then((data: any[]) => {
+      console.error(data);
+      // this.store.dispatch(new LoadLabelsSuccessAction(data));
+    }).catch((err: HttpErrorResponse) => {
+      this.store.dispatch(new LoadLabelsFailedAction(err.message));
+    });
   }
 
 }
