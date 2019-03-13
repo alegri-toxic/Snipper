@@ -89,9 +89,7 @@
               "apps/frontend/tsconfig.app.json",
               "apps/frontend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -126,9 +124,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/frontend-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -146,9 +142,7 @@
             "outputPath": "dist/apps/backend",
             "main": "apps/backend/src/main.ts",
             "tsConfig": "apps/backend/tsconfig.app.json",
-            "assets": [
-              "apps/backend/src/assets"
-            ]
+            "assets": ["apps/backend/src/assets"]
           },
           "configurations": {
             "production": {
@@ -178,9 +172,7 @@
               "apps/backend/tsconfig.app.json",
               "apps/backend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -189,6 +181,37 @@
             "jestConfig": "apps/backend/jest.config.js",
             "tsConfig": "apps/backend/tsconfig.spec.json"
           }
+        }
+      }
+    },
+    "store": {
+      "root": "libs/store",
+      "sourceRoot": "libs/store/src",
+      "projectType": "library",
+      "prefix": "Snippeter",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/store/tsconfig.lib.json",
+              "libs/store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/store/jest.config.js",
+            "tsConfig": "libs/store/tsconfig.spec.json",
+            "setupFile": "libs/store/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
         }
       }
     }
