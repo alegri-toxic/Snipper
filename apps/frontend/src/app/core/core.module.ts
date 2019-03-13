@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ClarityModule } from '@clr/angular';
 import { LayoutContainerComponent } from './container/layout-container/layout-container.component';
@@ -17,7 +18,8 @@ import { SearchComponent } from './component/search/search.component';
   ],
   imports: [
     CommonModule,
-    ClarityModule
+    ClarityModule,
+    ReactiveFormsModule
   ],
   exports: [
     LayoutContainerComponent,
