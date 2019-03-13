@@ -1,4 +1,5 @@
-import { SnippetService } from './../../../../libs/store/src/lib/services/snippet.service';
+import { LabelService } from '@Snippeter/store';
+import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,8 +9,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
-
-  constructor(private readonly snippetService: SnippetService) {
-    this.snippetService.getSnippets();
-  }
 }

@@ -4,5 +4,13 @@ export interface SnippetsStateModel {
   loaded: boolean;
   error: boolean;
   errorMessage: string;
-  snippets: any[]; // TODO: Add Interface
+  snippets: SnippetsStateArray[];
+}
+
+
+export interface SnippetsStateArray {
+  id: number;
+  title: string;
+  description: string;
+  code: string;
 }

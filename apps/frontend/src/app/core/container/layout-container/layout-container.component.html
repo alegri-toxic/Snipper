@@ -1,7 +1,7 @@
 <div class="main-container">
   <Snippeter-header></Snippeter-header>
   <div class="content-container">
-    <Snippeter-sidenav></Snippeter-sidenav>
+    <Snippeter-sidenav [labelState]="(labelState | async )"></Snippeter-sidenav>
     <div class="content-area">
       <ng-content></ng-content>
     </div>

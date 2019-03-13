@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'Snippeter-sidenav',
@@ -7,20 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  public labels: { text: string; colorClass: string; count: number }[] = [];
+  @Input() labelState: any;
 
-  constructor() {
-    this.labels.push({
-      text: 'Javascript',
-      colorClass: 'label-orange',
-      count: 0
-    });
-    this.labels.push({
-      text: 'C#',
-      colorClass: 'label-purple',
-      count: 0
-    });
-  }
+  constructor() {  }
 
   ngOnInit() {
   }

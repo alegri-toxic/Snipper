@@ -1,18 +1,28 @@
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { SnippetsState } from '../../../+state/snippets/snippets.state';
-import { LoadSnippetsAction } from '../../../+state/snippets/snippets.actions';
+import { Observable } from 'rxjs';
+import { SnippetsStateModel, SnippetsStateArray, LoadSnippetsAction, AddSnippetAction, SnippetsState } from '../../../+state/snippets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SnippetService {
 
-  constructor(
-    private readonly store: Store,
-    private readonly state: SnippetsState) { }
+  @Select(SnippetsState) snippetsState$: Observable<SnippetsStateModel>;
 
-  getSnippets(): void {
-    this.store.dispatch(new LoadSnippetsAction(0));
+  constructor(
+    private readonly store: Store
+  ) { }
+
+  loadSnippets(teamId: number = 0): void {
+    this.store.dispatch(new LoadSnippetsAction(teamId));
+  }
+
+  createSnippet(data: SnippetsStateArray): void {
+    this.store.dispatch(new AddSnippetAction(data));
+  }
+
+  getSnippetState(): Observable<SnippetsStateModel> {
+    return this.snippetsState$;
   }
 }

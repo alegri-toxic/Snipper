@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@Snippeter/core": ["libs/core/src/index.ts"]
+      "@Snippeter/store": ["libs/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

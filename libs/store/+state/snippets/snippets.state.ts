@@ -1,5 +1,5 @@
 import { State, Action, Selector, StateContext } from '@ngxs/store';
-import { LoadSnippetsAction } from './snippets.actions';
+import { LoadSnippetsAction, LoadSnippetsSuccessAction, LoadSnippetsFailedAction, AddSnippetAction } from './snippets.actions';
 import { SnippetsStateModel } from './snippets.model';
 
 @State<SnippetsStateModel>({
@@ -55,12 +55,51 @@ export class SnippetsState {
     const state = ctx.getState();
     const newState = {
       ...state,
-      teamId: action.teamId,
+      teamId: action.payload,
       loaded: false,
       error: false,
       errorMessage: '',
       snippets: []
     };
-    ctx.setState(newState);
+    return ctx.setState(newState);
+  }
+
+  @Action(LoadSnippetsSuccessAction)
+  public success(ctx: StateContext<SnippetsStateModel>, action: LoadSnippetsSuccessAction) {
+    const state = ctx.getState();
+    const newState = {
+      ...state,
+      loading: false,
+      loaded: true,
+      snippets: action.payload
+    };
+     return ctx.setState(newState);
+  }
+
+  @Action(LoadSnippetsFailedAction)
+  public failed(ctx: StateContext<SnippetsStateModel>, action: LoadSnippetsFailedAction) {
+    const state = ctx.getState();
+    const newState = {
+      ...state,
+      loading: false,
+      error: true,
+      errorMessage: action.payload
+    };
+     return ctx.setState(newState);
+  }
+
+  @Action(AddSnippetAction)
+  public create(ctx: StateContext<SnippetsStateModel>, action: AddSnippetAction) {
+    const state = ctx.getState();
+    const snippets = [
+      ...state.snippets,
+      action.payload
+    ];
+    const newState = {
+      ...state,
+      snippets
+    };
+    console.error(newState);
+     return ctx.setState(newState);
   }
 }

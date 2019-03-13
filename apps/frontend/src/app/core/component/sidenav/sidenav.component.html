@@ -1,7 +1,6 @@
 <nav class="sidenav">
-
+    {{ labelState?.labels | json }}
     <section class="sidenav-content">
-
         <a href="#" class="nav-link">
             <clr-icon shape="view-list"></clr-icon>&nbsp;
             All Snippets
@@ -21,8 +20,8 @@
             <input id="labels" type="checkbox">
             <label for="labels">Labels</label>
             <ul class="nav-list">
-              <li *ngFor="let label of labels; let index = index;">
-                  <Snippeter-labels [labelText]="label.text" [labelColor]="label.colorClass" [labelCount]="label.count"></Snippeter-labels>
+              <li *ngFor="let label of labelState.labels; let index = index;">
+                  <Snippeter-labels [labelText]="label.title" [labelColor]="label.color" [labelCount]="label.count"></Snippeter-labels>
               </li>
             </ul>
         </section>
