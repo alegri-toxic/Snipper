@@ -1,3 +1,45 @@
-<header class="header header-6">
-  ...
+<header [className]="headerClasses">
+  <div class="branding">
+    <a href="#" class="nav-link">
+      <clr-icon shape="cloud" class="is-solid"></clr-icon>
+      <span class="title">Project Snippeter</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    <Snippeter-search></Snippeter-search>
+  </div>
+  <div class="header-actions">
+
+  <clr-dropdown>
+    <button class="nav-icon" clrDropdownTrigger>
+      <clr-icon shape="filter"></clr-icon>
+      <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+      <a href="#" clrDropdownItem>Sort by Recently Created</a>
+      <a href="#" clrDropdownItem>Sort by Oldest first</a>
+    </clr-dropdown-menu>
+  </clr-dropdown>
+
+  <clr-dropdown>
+    <button class="nav-icon" clrDropdownTrigger>
+      <clr-icon shape="user"></clr-icon>
+      <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+      <a href="#" clrDropdownItem>Login</a>
+    </clr-dropdown-menu>
+  </clr-dropdown>
+
+  <clr-dropdown>
+    <button class="nav-icon" clrDropdownTrigger>
+      <clr-icon shape="cog"></clr-icon>
+      <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+      <a href="#" clrDropdownItem>Settings</a>
+    </clr-dropdown-menu>
+  </clr-dropdown>
+
+  </div>
 </header>
